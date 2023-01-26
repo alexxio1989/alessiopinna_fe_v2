@@ -32,6 +32,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BioComponent } from './components/pages/home-page/bio/bio.component';
 import { WhatWeDoComponent } from './components/pages/home-page/what-we-do/what-we-do.component';
 import { CardProdottoComponent } from './components/cards/card-prodotto/card-prodotto.component';
+import { DialogLoginComponent } from './components/dialog/dialog-login/dialog-login.component';
 
 
 
@@ -45,7 +46,8 @@ import { CardProdottoComponent } from './components/cards/card-prodotto/card-pro
     NavbarComponent,
     BioComponent,
     WhatWeDoComponent,
-    CardProdottoComponent
+    CardProdottoComponent,
+    DialogLoginComponent
   ],
   imports: [
     HttpClientModule,

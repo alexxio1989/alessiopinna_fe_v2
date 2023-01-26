@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -8,6 +9,9 @@ export class DelegateService {
 
   sbjSpinner = new Subject<boolean>();
   sbjErrorsNotification = new Subject<string>();
+  public isMobile = false
 
-  constructor() { }
+  constructor(private deviceService: DeviceDetectorService) { 
+    this.isMobile = this.deviceService.isMobile();
+  }
 }
