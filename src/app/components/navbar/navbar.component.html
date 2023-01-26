@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg  bg-light fixed-nav-bar">
+    
+        <button mat-button class="navbar-brand" class="px-0" (click)="goTo('')"><img src="/assets/logo.png" class="logo" height="25px" alt="image"></button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li *ngIf="!us.logged" class="nav-item px-2">
+                    <button  mat-button color="accent" class="login-with-google-btn" (click)="openLogin()">Accedi con google</button>
+                </li>
+                <li *ngIf="us.logged && us.isSU" class="nav-item px-2">
+                    <button mat-button (click)="goTo('su')">ADMIN</button>
+                </li>
+                <li *ngIf="us.logged" class="nav-item px-2">
+                    <button  mat-button color="accent" (click)="logout()">
+                        <img  height="25px" alt="" class="c-icon border border-white" src="/assets/svg/button-off.svg">
+
+                    </button>
+                </li>
+                <li *ngIf="us.logged" class="nav-item px-2">
+                    <button mat-button >
+                        <img *ngIf="!us.utente.photoUrl" height="28px" alt="" class="c-icon border border-white" src="/assets/svg/user-com.svg">
+                        <img *ngIf="us.utente.photoUrl" height="28px" alt="" class="c-icon rounded-circle border border-white" src="{{us.utente.photoUrl}}">
+                    </button>
+                </li>
+            </ul>
+        </div>
+    
+</nav>

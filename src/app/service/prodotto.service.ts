@@ -6,6 +6,7 @@ import { Constants } from '../constants/constants';
 import { ConstantsAPI } from '../constants/constants-API';
 import { Prodotto } from '../dto/prodotto';
 import { ResponseProdotto } from '../dto/response/responseProdotto';
+import { getMapProdotti } from '../mapper/common-mapper';
 import { DelegateService } from './delegate.service';
 
 @Injectable({
@@ -38,20 +39,10 @@ export class ProdottoService {
     }
   }
 
-  setMapCorsi(prodotti :Prodotto[]){
-    this.mapProdotti = new Map<string, Prodotto[]>();
+  setMapProdotti(prodotti :Prodotto[]){
     if(prodotti && prodotti.length > 0){
       this.setProdotti(prodotti)
-      prodotti.forEach(prodotto => {
-        const listFiltred = this.mapProdotti.get(prodotto.tipo.descrizione);
-        if (listFiltred) {
-          listFiltred.push(prodotto);
-        } else {
-          let newListFiltred = [];
-          newListFiltred.push(prodotto);
-          this.mapProdotti.set(prodotto.tipo.descrizione, newListFiltred);
-        }
-      });
+      this.mapProdotti = getMapProdotti(prodotti)
     }
   }
 

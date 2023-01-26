@@ -28,6 +28,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatBadgeModule} from '@angular/material/badge';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { BioComponent } from './components/pages/home-page/bio/bio.component';
+import { WhatWeDoComponent } from './components/pages/home-page/what-we-do/what-we-do.component';
+import { CardProdottoComponent } from './components/cards/card-prodotto/card-prodotto.component';
 
 
 
@@ -37,7 +41,11 @@ import {MatBadgeModule} from '@angular/material/badge';
     HomePageComponent,
     AdminPageComponent,
     DetailProductPageComponent,
-    UserPageComponent
+    UserPageComponent,
+    NavbarComponent,
+    BioComponent,
+    WhatWeDoComponent,
+    CardProdottoComponent
   ],
   imports: [
     HttpClientModule,
