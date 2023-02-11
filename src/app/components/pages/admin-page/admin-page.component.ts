@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DelegateService } from 'src/app/service/delegate.service';
-import { UtenteService } from 'src/app/service/utente.service';
+import { DelegateService } from 'src/app/core.ap/service/delegate.service';
+import { UtenteService } from 'src/app/core.ap/service/utente.service';
 import { DialogLoginComponent } from '../../dialog/dialog-login/dialog-login.component';
 
 @Component({

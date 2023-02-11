@@ -6,8 +6,8 @@ const mock = true
 export const environment = {
   production: false,
   path:mock ? "http://localhost:8080" : "https://alessiopinna-be.herokuapp.com",
-  prodotto: mock ? "http://localhost:8080/prodotto" : "https://alessiopinna-be.herokuapp.com/prodotto",
-  utente: mock ? "http://localhost:8080/utente" : "https://alessiopinna-be.herokuapp.com/utente",
+  servizio: mock ? "http://localhost:8080/servizio" : "https://alessiopinna-be.herokuapp.com/servizio",
+  utente: mock ? "http://localhost:8080" : "https://alessiopinna-be.herokuapp.com",
   acquisto: mock ? "http://localhost:8080/acquisto" : "https://alessiopinna-be.herokuapp.com/acquisto",
   tpl: mock ? "http://localhost:8080/tpl" : "https://alessiopinna-be.herokuapp.com/tpl",
   mock:true

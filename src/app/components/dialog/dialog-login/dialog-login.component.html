@@ -37,7 +37,7 @@
 </div>
 
 <div  mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Annulla</button>
+  <button mat-button mat-dialog-close (click)="cancel()">Annulla</button>
   
   <button mat-button *ngIf="login && enableLogin" color="primary" (click) = "loginUser()" cdkFocusInitial>Accedi</button>
   <button mat-button *ngIf="!login && enableSignin" (click) = "signinUser()" >Registrati</button>

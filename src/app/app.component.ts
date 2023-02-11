@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { DelegateService } from './service/delegate.service';
+import { DelegateService } from './core.ap/service/delegate.service';
 
 @Component({
   selector: 'app-root',

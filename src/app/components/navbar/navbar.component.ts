@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { UtenteService } from 'src/app/service/utente.service';
+import { UtenteService } from 'src/app/core.ap/service/utente.service';
 import { environment } from 'src/environments/environment';
 
 @Component({

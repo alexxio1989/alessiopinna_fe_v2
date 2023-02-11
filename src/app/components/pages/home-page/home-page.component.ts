@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { mapLoginUtente } from 'src/app/mapper/utente-mapper';
-import { DelegateService } from 'src/app/service/delegate.service';
-import { ProdottoService } from 'src/app/service/prodotto.service';
-import { UtenteService } from 'src/app/service/utente.service';
+import { Router } from '@angular/router';
+import { Dominio } from 'src/app/core.ap/dto/dominio';
+import { EventoDto } from 'src/app/core.ap/dto/eventoDto';
+import { ProdottoDto } from 'src/app/core.ap/dto/prodottoDto';
+import { getMapEventi, getMapProdotti } from 'src/app/core.ap/mapper/common-mapper';
+import { mapLoginUtente } from 'src/app/core.ap/mapper/utente-mapper';
+import { DelegateService } from 'src/app/core.ap/service/delegate.service';
+import { ServizioService } from 'src/app/core.ap/service/servizio.service';
+import { UtenteService } from 'src/app/core.ap/service/utente.service';
 
 @Component({
   selector: 'app-home-page',
@@ -12,17 +17,32 @@ import { UtenteService } from 'src/app/service/utente.service';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(public ps: ProdottoService,
+  prodotti = new Map<Dominio, ProdottoDto[]>();
+  eventi = new Map<Dominio, EventoDto[]>();
+
+  constructor(public ss: ServizioService,
     private ds:DelegateService ,
-    private route: ActivatedRoute,
+    private router: ActivatedRoute,
+    private route: Router,
     private us:UtenteService) { }
 
   ngOnInit(): void {
     this.loginFromParams()
+    this.ss.getProdotti().subscribe(next =>{
+      this.ds.sbjSpinner.next(false);
+      if(next){
+        this.prodotti = getMapProdotti(next.prodotti)
+        this.eventi = getMapEventi(next.eventi)
+      }
+      
+    }, error => {
+      this.ds.sbjSpinner.next(false);
+      this.ds.sbjErrorsNotification.next("Errore durante il recupero dei servizi");
+    })
   }
 
   private loginFromParams() {
-    this.route.queryParams.subscribe(params => {
+    this.router.queryParams.subscribe(params => {
       if (params.email && params.id) {
         let requestLogin = mapLoginUtente(params.email, params.id);
         this.us.login(requestLogin).subscribe(next => {
@@ -31,7 +51,9 @@ export class HomePageComponent implements OnInit {
             this.ds.sbjErrorsNotification.next(next.error);
           } else {
             this.ds.sbjErrorsNotification.next("Login avvenuta con successo");
+            
             this.us.sbjUtente.next(next.utente);
+            this.route.navigate(['']);
           }
         }, error => {
           this.ds.sbjSpinner.next(false);

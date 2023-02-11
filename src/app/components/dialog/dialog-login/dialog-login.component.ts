@@ -1,10 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { RequestLogin } from 'src/app/dto/request/requestLogin';
-import { Utente } from 'src/app/dto/utente';
-import { DelegateService } from 'src/app/service/delegate.service';
-import { UtenteService } from 'src/app/service/utente.service';
+import { RequestLogin } from 'src/app/core.ap/dto/request/requestLogin';
+import { UtenteDto } from 'src/app/core.ap/dto/utenteDto';
+import { DelegateService } from 'src/app/core.ap/service/delegate.service';
+import { UtenteService } from 'src/app/core.ap/service/utente.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class DialogLoginComponent implements OnInit {
   auth2: any;
   @ViewChild('loginRef', {static: true }) loginElement: ElementRef;
   requestLogin:RequestLogin
-  utente:Utente
+  utente:UtenteDto
   passwordConfirm = ''
 
   maintab = 0;
@@ -31,7 +32,7 @@ export class DialogLoginComponent implements OnInit {
   constructor(private user_service:UtenteService,
               private ds:DelegateService , 
               private dialogRef: MatDialogRef<DialogLoginComponent>,
-              private formBuilder: FormBuilder) { 
+              private route: Router) { 
                 
               }
 
@@ -56,16 +57,13 @@ export class DialogLoginComponent implements OnInit {
        this.utente.email !== undefined &&
        this.utente.email !== null && 
        '' !== this.utente.email && 
-       this.utente.skypeID !== undefined &&
-       this.utente.skypeID !== null && 
-       '' !== this.utente.skypeID && 
        this.requestLogin.password === this.passwordConfirm
   }
 
   ngOnInit(): void {
     this.login = true
     this.requestLogin = new RequestLogin();
-    this.utente = new Utente();
+    this.utente = new UtenteDto();
   
   }
 
@@ -107,6 +105,10 @@ export class DialogLoginComponent implements OnInit {
       this.ds.sbjSpinner.next(false)
       this.ds.sbjErrorsNotification.next("Errore durante la signin")
     })
+  }
+
+  cancel(){
+    this.route.navigate(['']);
   }
 
 

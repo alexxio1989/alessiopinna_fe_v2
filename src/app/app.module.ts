@@ -33,6 +33,10 @@ import { BioComponent } from './components/pages/home-page/bio/bio.component';
 import { WhatWeDoComponent } from './components/pages/home-page/what-we-do/what-we-do.component';
 import { CardProdottoComponent } from './components/cards/card-prodotto/card-prodotto.component';
 import { DialogLoginComponent } from './components/dialog/dialog-login/dialog-login.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ListProdottiComponent } from './components/list-prodotti/list-prodotti.component';
+import { ListEventiComponent } from './components/list-eventi/list-eventi.component';
+import { CardEventoComponent } from './components/cards/card-evento/card-evento.component';
 
 
 
@@ -47,7 +51,11 @@ import { DialogLoginComponent } from './components/dialog/dialog-login/dialog-lo
     BioComponent,
     WhatWeDoComponent,
     CardProdottoComponent,
-    DialogLoginComponent
+    DialogLoginComponent,
+    FooterComponent,
+    ListProdottiComponent,
+    ListEventiComponent,
+    CardEventoComponent
   ],
   imports: [
     HttpClientModule,
