@@ -26,7 +26,7 @@
         <button mat-button>Il mio profilo</button>
       </div>
       <div *ngIf="us.logged && us.isSU" class="col-12 d-flex justify-content-center mb-2 bg-white">
-        <button mat-button (click)="goTo('su')">ADMIN</button>
+        <button mat-button (click)="goTo('dashboard')">ADMIN</button>
       </div>
       <mat-divider class="mb-2"></mat-divider>
       <div *ngIf="us.logged" class="col-12 d-flex justify-content-center  bg-white">

@@ -75,6 +75,11 @@ export class UtenteService {
     return this.http.post(environment.utente + ConstantsAPI.LOGIN,req); 
   }
 
+  loginAdmin(req:RequestLogin): Observable<any>{
+    this.ds.sbjSpinner.next(true)
+    return this.http.post(environment.utente + ConstantsAPI.LOGIN_ADMIN,req); 
+  }
+
   googleLogin(){
     window.open(environment.path + ConstantsAPI.GOOGLE_LOGIN);
     window.self.close();

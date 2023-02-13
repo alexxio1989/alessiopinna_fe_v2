@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
-import { AdminPageComponent } from './components/pages/admin-page/admin-page.component';
 import { DetailProductPageComponent } from './components/pages/detail-product-page/detail-product-page.component';
 import { UserPageComponent } from './components/pages/user-page/user-page.component';
 
@@ -32,11 +31,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BioComponent } from './components/pages/home-page/bio/bio.component';
 import { WhatWeDoComponent } from './components/pages/home-page/what-we-do/what-we-do.component';
 import { CardProdottoComponent } from './components/cards/card-prodotto/card-prodotto.component';
-import { DialogLoginComponent } from './components/dialog/dialog-login/dialog-login.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ListProdottiComponent } from './components/list-prodotti/list-prodotti.component';
 import { ListEventiComponent } from './components/list-eventi/list-eventi.component';
 import { CardEventoComponent } from './components/cards/card-evento/card-evento.component';
+import { CoreModule } from './core.ap/core.module';
 
 
 
@@ -44,14 +43,12 @@ import { CardEventoComponent } from './components/cards/card-evento/card-evento.
   declarations: [
     AppComponent,
     HomePageComponent,
-    AdminPageComponent,
     DetailProductPageComponent,
     UserPageComponent,
     NavbarComponent,
     BioComponent,
     WhatWeDoComponent,
     CardProdottoComponent,
-    DialogLoginComponent,
     FooterComponent,
     ListProdottiComponent,
     ListEventiComponent,
@@ -72,7 +69,7 @@ import { CardEventoComponent } from './components/cards/card-evento/card-evento.
     FormsModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
-      useFactory: adapterFactory
+      useFactory: adapterFactory 
     }),
     NgbModalModule,
     FlatpickrModule,
@@ -81,7 +78,8 @@ import { CardEventoComponent } from './components/cards/card-evento/card-evento.
     MatMenuModule,
     AngularEditorModule,
     MatDividerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

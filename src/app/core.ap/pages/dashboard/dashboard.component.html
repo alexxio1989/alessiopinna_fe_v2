@@ -1,0 +1,12 @@
+<div *ngIf="us.logged" class="row">
+    <div class="col-12 py-3">
+        <mat-tab-group>
+            <mat-tab label="Gestione tipi prodotti/eventi" class="shadow">
+                <app-list-tipi-servizi [(domini)]="domini"></app-list-tipi-servizi>
+            </mat-tab>
+            <mat-tab label="Gestione prodotti/eventi"> Content 2 </mat-tab>
+            <mat-tab label="Gestione prenotazioni"> Content 3 </mat-tab>
+            <mat-tab label="Gestione acquisti"> Content 3 </mat-tab>
+          </mat-tab-group>
+    </div>
+</div>

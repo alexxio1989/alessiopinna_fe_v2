@@ -6,5 +6,6 @@ export class ConstantsAPI{
     public static ALL = '/all' 
     public static SIGNIN = '/signin' 
     public static LOGIN = '/login' 
+    public static LOGIN_ADMIN = '/login/admin' 
     public static GOOGLE_LOGIN = '/login/google' 
 }
