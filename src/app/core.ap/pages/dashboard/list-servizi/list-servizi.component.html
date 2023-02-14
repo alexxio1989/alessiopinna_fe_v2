@@ -153,10 +153,10 @@
             <div class="col-12 px-3 py-3 {{ds.isMobile ? '' : 'd-flex justify-content-around'  }} bg-white mt-2">
                 <div *ngFor="let prodotto of value.value" class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-flex justify-content-center flex-column inner-corsi rounded">
                     <div class="col-12 d-flex justify-content-center bg-light mb-2">
-                        <button mat-button >
+                        <button mat-button (click)="prodottoSelected = prodotto ; delete('prodotto')">
                             Elimina
                         </button>
-                        <button mat-button >
+                        <button mat-button (click)="prodottoSelected = prodotto ; addProdottoAction = true">
                             Modifica
                         </button>
                     </div>
@@ -181,10 +181,10 @@
                 <div *ngFor="let evento of value.value"
                     class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-flex justify-content-center flex-column inner-corsi rounded">
                     <div class="col-12 d-flex justify-content-center bg-light mb-2">
-                        <button mat-button >
+                        <button mat-button (click)="eventoSelected = evento ; delete('evento')">
                             Elimina
                         </button>
-                        <button mat-button >
+                        <button mat-button (click)="eventoSelected = evento ; addEventoAction = true">
                             Modifica
                         </button>
                     </div>

@@ -79,7 +79,7 @@ export class ServizioService {
   delete(servizio: ServizioDto): Observable<ResponseServizio> {
     this.ds.sbjSpinner.next(true);
     return this.http.delete<ResponseServizio>(
-      environment.servizio + ConstantsAPI.DELETE + servizio.id ,{headers: getHeaderForUser(this.us.getUtente())}
+      environment.servizio +"/"+ servizio.id ,{headers: getHeaderForUser(this.us.getUtente())}
     );
   }
 }
