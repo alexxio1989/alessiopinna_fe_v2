@@ -26,12 +26,7 @@ export class TipoServizoService {
 
   save(type: Dominio):Observable<Dominio[]>{
     this.ds.sbjSpinner.next(true)
-    return this.http.post<Dominio[]>(environment.tpl,type.descrizione,{headers: getHeaderForUser(this.us.getUtente())});
-  }
-
-  update(type: Dominio):Observable<Dominio[]>{
-    this.ds.sbjSpinner.next(true)
-    return this.http.put<Dominio[]>(environment.tpl,type,{headers: getHeaderForUser(this.us.getUtente())});
+    return this.http.post<Dominio[]>(environment.tpl,type,{headers: getHeaderForUser(this.us.getUtente())});
   }
 
 }

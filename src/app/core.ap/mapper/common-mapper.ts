@@ -5,34 +5,41 @@ import { ProdottoDto } from "../dto/prodottoDto";
 import { UtenteDto } from "../dto/utenteDto";
 
 
-export function getMapProdotti(prodotti: ProdottoDto[]) : Map<Dominio, ProdottoDto[]>{
-    let mapProdotti = new Map<Dominio, ProdottoDto[]>();
+export function getMapProdotti(prodotti: ProdottoDto[]) : Map<String, ProdottoDto[]>{
+    let mapProdotti = new Map<String, ProdottoDto[]>();
     if(prodotti){
       prodotti.forEach(prodotto => {
-        const listFiltred = mapProdotti.get(prodotto.tipoServizio);
+        /* let keys = Array.from( mapProdotti.keys() );
+        if(keys){
+          let filtredByID = keys.filter(d => d.id === prodotto.tipoServizio.id)
+          if(filtredByID && filtredByID.length === 1){
+            let dominioFiltred filtredByID
+          }
+        } */
+        const listFiltred = mapProdotti.get(prodotto.tipoServizio.id);
         if (listFiltred) {
         listFiltred.push(prodotto);
         } else {
-        let newListFiltred = [];
-        newListFiltred.push(prodotto);
-        mapProdotti.set(prodotto.tipoServizio, newListFiltred);
+          let newListFiltred = [];
+          newListFiltred.push(prodotto);
+          mapProdotti.set(prodotto.tipoServizio.id, newListFiltred);
         }
       });
     }
     return mapProdotti;
 }
 
-export function getMapEventi(eventi: EventoDto[]) : Map<Dominio, EventoDto[]>{
-  let mapProdotti = new Map<Dominio, EventoDto[]>();
+export function getMapEventi(eventi: EventoDto[]) : Map<String, EventoDto[]>{
+  let mapProdotti = new Map<String, EventoDto[]>();
   if(eventi){
     eventi.forEach(evento => {
-      const listFiltred = mapProdotti.get(evento.tipoServizio);
+      const listFiltred = mapProdotti.get(evento.tipoServizio.id);
       if (listFiltred) {
       listFiltred.push(evento);
       } else {
       let newListFiltred = [];
       newListFiltred.push(evento);
-      mapProdotti.set(evento.tipoServizio, newListFiltred);
+      mapProdotti.set(evento.tipoServizio.id, newListFiltred);
       }
     });
   }

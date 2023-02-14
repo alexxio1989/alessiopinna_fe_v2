@@ -30,12 +30,10 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BioComponent } from './components/pages/home-page/bio/bio.component';
 import { WhatWeDoComponent } from './components/pages/home-page/what-we-do/what-we-do.component';
-import { CardProdottoComponent } from './components/cards/card-prodotto/card-prodotto.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ListProdottiComponent } from './components/list-prodotti/list-prodotti.component';
-import { ListEventiComponent } from './components/list-eventi/list-eventi.component';
-import { CardEventoComponent } from './components/cards/card-evento/card-evento.component';
 import { CoreModule } from './core.ap/core.module';
+import { ListEventiComponent } from './components/list-eventi/list-eventi.component';
+import { ListProdottiComponent } from './components/list-prodotti/list-prodotti.component';
 
 
 
@@ -47,12 +45,10 @@ import { CoreModule } from './core.ap/core.module';
     UserPageComponent,
     NavbarComponent,
     BioComponent,
-    WhatWeDoComponent,
-    CardProdottoComponent,
     FooterComponent,
-    ListProdottiComponent,
+    WhatWeDoComponent,
     ListEventiComponent,
-    CardEventoComponent
+    ListProdottiComponent
   ],
   imports: [
     HttpClientModule,

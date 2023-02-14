@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Dominio } from 'src/app/core.ap/dto/dominio';
 import { DelegateService } from 'src/app/core.ap/service/delegate.service';
 import { TipoServizoService } from 'src/app/core.ap/service/tipo-servizo.service';
@@ -11,6 +12,7 @@ import { UtenteService } from 'src/app/core.ap/service/utente.service';
 })
 export class ListTipiServiziComponent implements OnInit {
 
+  @Input() editorConfig: AngularEditorConfig;
   @Input() domini:Dominio[] = []
   @Output() dominiChange : EventEmitter<Dominio[]> = new EventEmitter<Dominio[]>();
   typeSelected: Dominio;
@@ -23,13 +25,28 @@ export class ListTipiServiziComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.editorConfig.placeholder='Inserisci descrizione estesa del tipo prodotto/evento'
   }
 
   add(){
     this.typeSelected = new Dominio();
     this.addAction = true;
+  }
+
+  close(){
+    this.typeSelected = new Dominio();
+    this.addAction = false;
+  }
+
+  edit(dominio: Dominio){
+    this.typeSelected = dominio;
+    this.addAction = true;
+  }
+
+  save(){
     this.ts.save(this.typeSelected).subscribe(next=>{
       this.ds.sbjSpinner.next(false)
+      this.close()
       this.dominiChange.emit(next);
     }, error => {
       this.ds.sbjSpinner.next(false)
@@ -37,15 +54,6 @@ export class ListTipiServiziComponent implements OnInit {
     })
   }
 
-  edit(type:Dominio){
-    this.ts.update(this.typeSelected).subscribe(next=>{
-      this.ds.sbjSpinner.next(false)
-      this.dominiChange.emit(next)
-    }, error => {
-      this.ds.sbjSpinner.next(false)
-      this.ds.sbjErrorsNotification.next("Errore durante la modifica del tipo prodotto/evento")
-    })
-  }
 
   delete(type:Dominio){
 

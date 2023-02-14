@@ -11,6 +11,13 @@ import { ListTipiServiziComponent } from './pages/dashboard/list-tipi-servizi/li
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDividerModule} from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { MatInputModule } from '@angular/material/input';
+import { ListServiziComponent } from './pages/dashboard/list-servizi/list-servizi.component';
+import { CardEventoComponent } from './components/cards/card-evento/card-evento.component';
+import { CardProdottoComponent } from './components/cards/card-prodotto/card-prodotto.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -18,7 +25,14 @@ import {MatDividerModule} from '@angular/material/divider';
   declarations: [
     DashboardComponent,
     DialogLoginAdminComponent,
-    ListTipiServiziComponent
+    ListTipiServiziComponent,
+    ListServiziComponent,
+    CardEventoComponent,
+    CardProdottoComponent
+  ],
+  exports: [
+    CardEventoComponent,
+    CardProdottoComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +43,11 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatIconModule,
     BrowserAnimationsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatFormFieldModule,
+    AngularEditorModule,
+    MatInputModule,
+    MatMenuModule
   ]
 })
 export class CoreModule { }

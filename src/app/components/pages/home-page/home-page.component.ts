@@ -17,8 +17,8 @@ import { UtenteService } from 'src/app/core.ap/service/utente.service';
 })
 export class HomePageComponent implements OnInit {
 
-  prodotti = new Map<Dominio, ProdottoDto[]>();
-  eventi = new Map<Dominio, EventoDto[]>();
+  prodotti = new Map<String, ProdottoDto[]>();
+  eventi = new Map<String, EventoDto[]>();
 
   constructor(public ss: ServizioService,
     private ds:DelegateService ,

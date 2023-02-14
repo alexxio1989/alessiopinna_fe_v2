@@ -65,20 +65,20 @@ export class ServizioService {
     return this.servizio;
   }
 
-  saveProdotto(prodotto: ProdottoDto): Observable<any> {
+  saveProdotto(prodotto: ProdottoDto): Observable<ResponseServizio> {
     this.ds.sbjSpinner.next(true);
-    return this.http.post(
+    return this.http.post<ResponseServizio>(
       environment.servizio + ConstantsAPI.PRODOTTO,prodotto,{headers: getHeaderForUser(this.us.getUtente())});
   }
 
-  saveEvento(evento: EventoDto): Observable<any> {
+  saveEvento(evento: EventoDto): Observable<ResponseServizio> {
     this.ds.sbjSpinner.next(true);
-    return this.http.post(environment.servizio + ConstantsAPI.EVENTO, evento,{headers: getHeaderForUser(this.us.getUtente())});
+    return this.http.post<ResponseServizio>(environment.servizio + ConstantsAPI.EVENTO, evento,{headers: getHeaderForUser(this.us.getUtente())});
   }
 
-  delete(servizio: ServizioDto): Observable<any> {
+  delete(servizio: ServizioDto): Observable<ResponseServizio> {
     this.ds.sbjSpinner.next(true);
-    return this.http.delete(
+    return this.http.delete<ResponseServizio>(
       environment.servizio + ConstantsAPI.DELETE + servizio.id ,{headers: getHeaderForUser(this.us.getUtente())}
     );
   }

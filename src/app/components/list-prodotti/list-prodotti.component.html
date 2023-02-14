@@ -1,8 +1,10 @@
 
 <div *ngFor="let value of prodotti | keyvalue" class="row mb-4 bg-light rounded p-2">
     <div class="col-12 d-flex justify-content-center pt-3 pb-3">
-        
-        <p class="text-h3"><strong>Lezioni di {{value.key.descrizione}}</strong></p>
+        <p class="text-h3"><strong>Prodotti di {{value.value[0].tipoServizio.descrizione}}</strong></p>
+    </div>
+    <div class="col-12 d-flex justify-content-center pt-3 pb-3">
+        <p [innerHTML]="value.value[0].tipoServizio.descExt"></p>
     </div>
     <div class="col-12 px-3 {{ds.isMobile ? '' : 'd-flex justify-content-around'  }} bg-white mt-2">
         <div *ngFor="let prodotto of value.value"

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Dominio } from '../../dto/dominio';
+import { EventoDto } from '../../dto/eventoDto';
+import { ProdottoDto } from '../../dto/prodottoDto';
 import { DelegateService } from '../../service/delegate.service';
+import { ServizioService } from '../../service/servizio.service';
 import { TipoServizoService } from '../../service/tipo-servizo.service';
 import { UtenteService } from '../../service/utente.service';
 import { DialogLoginAdminComponent } from './dialog-login-admin/dialog-login-admin.component';
@@ -15,13 +19,17 @@ import { DialogLoginAdminComponent } from './dialog-login-admin/dialog-login-adm
 export class DashboardComponent implements OnInit {
 
   domini:Dominio[] = []
+  prodotti:ProdottoDto[] = []
+  eventi:EventoDto[] = []
+  editorConfig :AngularEditorConfig;
 
   constructor(
     public us: UtenteService,
     public dialog: MatDialog,
     private route: Router,
     private ds: DelegateService,
-    private ts:TipoServizoService
+    private ts:TipoServizoService,
+    private ss:ServizioService
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +53,37 @@ export class DashboardComponent implements OnInit {
       this.ds.sbjSpinner.next(false)
       this.ds.sbjErrorsNotification.next("Errore durante il recupero tipi prodotto/evento")
     })
+
+    
+
+    this.editorConfig = {
+      editable: true,
+      spellcheck: true,
+      height: '15rem',
+      minHeight: '5rem',
+      placeholder: 'Enter text here...',
+      translate: 'no',
+      defaultParagraphSeparator: 'p',
+      defaultFontName: 'Arial',
+      toolbarHiddenButtons: [
+        ['bold']
+        ],
+      customClasses: [
+        {
+          name: "quote",
+          class: "quote",
+        },
+        {
+          name: 'redText',
+          class: 'redText'
+        },
+        {
+          name: "titleText",
+          class: "titleText",
+          tag: "h1",
+        },
+      ]
+    };
   }
 
   openLogin() {
@@ -65,4 +104,6 @@ export class DashboardComponent implements OnInit {
   rtvTipiServizi(domini:Dominio[]){
     this.domini = domini
   }
+
+  
 }

@@ -10,7 +10,7 @@ import { DelegateService } from 'src/app/core.ap/service/delegate.service';
 })
 export class ListProdottiComponent implements OnInit {
 
-  @Input() prodotti : Map<Dominio, ProdottoDto[]>;
+  @Input() prodotti : Map<String, ProdottoDto[]>;
 
   constructor(public ds: DelegateService) { }
 

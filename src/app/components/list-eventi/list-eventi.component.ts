@@ -10,7 +10,7 @@ import { DelegateService } from 'src/app/core.ap/service/delegate.service';
 })
 export class ListEventiComponent implements OnInit {
 
-  @Input() eventi : Map<Dominio, EventoDto[]>;
+  @Input() eventi : Map<String, EventoDto[]>;
 
   constructor(public ds: DelegateService) { }
 
