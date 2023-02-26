@@ -27,14 +27,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatBadgeModule} from '@angular/material/badge';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { BioComponent } from './components/pages/home-page/bio/bio.component';
 import { WhatWeDoComponent } from './components/pages/home-page/what-we-do/what-we-do.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CoreModule } from './core.ap/core.module';
-import { ListEventiComponent } from './components/list-eventi/list-eventi.component';
-import { ListProdottiComponent } from './components/list-prodotti/list-prodotti.component';
-
 
 
 @NgModule({
@@ -43,12 +38,9 @@ import { ListProdottiComponent } from './components/list-prodotti/list-prodotti.
     HomePageComponent,
     DetailProductPageComponent,
     UserPageComponent,
-    NavbarComponent,
     BioComponent,
     FooterComponent,
-    WhatWeDoComponent,
-    ListEventiComponent,
-    ListProdottiComponent
+    WhatWeDoComponent
   ],
   imports: [
     HttpClientModule,
@@ -74,8 +66,7 @@ import { ListProdottiComponent } from './components/list-prodotti/list-prodotti.
     MatMenuModule,
     AngularEditorModule,
     MatDividerModule,
-    MatBadgeModule,
-    CoreModule
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

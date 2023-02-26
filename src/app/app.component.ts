@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { DelegateService } from './core.ap/service/delegate.service';
 
 @Component({
   selector: 'app-root',
@@ -10,24 +9,10 @@ import { DelegateService } from './core.ap/service/delegate.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private spinner: NgxSpinnerService , 
-    private ds:DelegateService , 
+  constructor(private spinner: NgxSpinnerService ,
     private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.ds.sbjErrorsNotification.asObservable().subscribe(next => {
-      this._snackBar.open(next,'',
-        { 
-          duration: 2000
-      });
-    })
-    this.ds.sbjSpinner.asObservable().subscribe(next => {
-      if(next){
-        this.spinner.show()
-      } else {
-        this.spinner.hide()
-      }
-    })
   
   }
 }
