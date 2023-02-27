@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@alexxio1989/ap-dashboard": "^1.0.0",
     "@angular/animations": "^14.0.0",
     "@angular/cli": "~14.0.0",
     "@angular/common": "^14.0.0",

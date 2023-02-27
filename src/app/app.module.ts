@@ -30,6 +30,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { BioComponent } from './components/pages/home-page/bio/bio.component';
 import { WhatWeDoComponent } from './components/pages/home-page/what-we-do/what-we-do.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -68,7 +69,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatDividerModule,
     MatBadgeModule
   ],
-  providers: [],
+  providers: [{provide: 'environment', useValue: environment}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
